@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: food-app
+spec:
+  replicas: 1  # Number of pods to run
+  selector:
+    matchLabels:
+      app: food-app
+  template:
+    metadata:
+      labels:
+        app: food-app
+    spec:
+      containers:
+        - name: food-app-container
+          image: sanjuthere/food-app:1.1 # Docker Hub public image
+          ports:
+            - containerPort: 3000  # The app runs inside the container on port 3000
+

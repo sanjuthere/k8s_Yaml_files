@@ -1,0 +1,14 @@
+deployment:
+  name: login
+  replicas: 1
+  label: login
+  container: login
+  image: sanjuthere/food-app:1.1
+  port: 80
+
+service:
+  name: login
+  type: NodePort
+  label: login
+  port: 80
+  nodeport: 30007

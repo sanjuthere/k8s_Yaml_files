@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: task-pv-service
+spec:
+  selector:
+    app: task-pv  # Ensure this matches the Pod label
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+      nodePort: 30007  # <-- Manually assigning a fixed NodePort
+  type: NodePort
+
